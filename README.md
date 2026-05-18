@@ -61,9 +61,11 @@ team_project_1/
 ├── 전기차충전기_년도별지역별.csv
 │
 └── README.md
+
+
 ```
 **사용 모듈**
-streamlit pandas plotly pymysql sqlalchemy openpyxl requests folium streamlit-folium selenium
+- streamlit pandas plotly pymysql sqlalchemy openpyxl requests folium streamlit-folium selenium
 
 ```
 
