@@ -1,1 +1,172 @@
-# SKN32-1st-2Team
+# ⚡ 전국 전기차 등록 현황 및 충전소 설치 현황 대시보드
+
+> 공공데이터를 기반으로 전국 전기차 등록 현황과 충전기 구축 현황을 수집·분석하고,  
+Streamlit을 활용해 년도별·지역별 대시보드로 시각화
+
+---## 📌 프로젝트 한눈에 보기
+
+- **팀 명**: 부릉데이터
+- **프로젝트 명**: 지역별 전기차 충전 인프라 분석 및 저공해차 FAQ
+- **프로젝트 기간**:2026.05.18 ~ 2026.05.19
+- **프로젝트 목표**
+- 년도별·지역별 전기차 등록 현황 및 충전기 구축 현황 분석
+- 충전 인프라 부족 지역 분석
+- 기업 FAQ
+- 
+- **데이터 기간**: 2020년 ~ 2025년
+- **지역 단위**: 전기차 17개 시도 / 충전기 8개 권역
+- **DB**: MySQL
+- **시각화**: Streamlit + Plotly
+
+---
+
+## 🛠️ 기술 스택
+
+| 분류 | 기술 |
+|------|------|
+| 언어 | Python 3.12 |
+| 크롤링 | Requests, BeautifulSoup, Selenium |
+| 데이터 처리 | Pandas, OpenPyXL |
+| DB | MySQL 8.0, SQLAlchemy, PyMySQL |
+| 시각화 | Streamlit, Plotly |
+| 버전 관리 | Git, GitHub |
+
+---
+
+## 📂 프로젝트 구조
+
+```
+team_project_1/
+│
+├── car_stats.py                          # 전기차 등록현황 정적 크롤링 → CSV 변환
+├── charger_stats.py                      # 충전기 구축현황 정적 크롤링 → CSV 변환
+├── ev_stats_db.py                        # CSV → MySQL 적재
+├── dashboard_map.py                      # Streamlit 대시보드
+│
+├── 전기차등록현황_년도별지역별.csv
+├── 전기차충전기_년도별지역별.csv
+│
+└── README.md
+```
+
+---
+
+## ⚙️ 실행 방법
+
+### 1. 패키지 설치
+
+```bash
+pip install streamlit pandas plotly pymysql sqlalchemy openpyxl requests xlrd
+```
+
+### 2. MySQL DB 및 테이블 생성
+
+MySQL Workbench에서 `create_db.sql` 실행
+
+```sql
+-- 또는 터미널에서
+mysql -u root -p < create_db.sql
+```
+
+### 3. 데이터 수집 및 CSV 변환
+
+```bash
+# 전기차 등록현황
+python ev_yearly.py
+
+# 충전기 구축현황
+python ev_charger_yearly.py
+```
+
+### 4. MySQL에 데이터 적재
+
+```bash
+python save_to_db.py
+```
+
+### 5. 대시보드 실행
+
+```bash
+streamlit run dashboard.py
+```
+
+브라우저에서 `http://localhost:8501` 접속
+
+---
+
+## 📊 주요 기능
+
+### 🚗 전기차 등록현황
+- 지역별 연도별 등록 대수 선/막대 그래프
+- 전국 합계 추이 차트
+- 최신 연도 KPI 지표 (전국 등록 대수, 전년 대비 증가, 최다 등록 지역)
+- 시도별 Choropleth 지도 시각화
+
+### 🔌 충전소 구축현황
+- 권역별 연도별 충전기 수 선/막대 그래프 (완속/급속/전체 필터)
+- 전국 완속 vs 급속 스택 막대 차트
+- 최신 연도 KPI 지표
+- 권역별 Choropleth 지도 시각화
+
+### 📊 전기차 vs 충전기 비교
+- 전기차 등록 대수 vs 충전기 수 이중축 차트
+- 전기차 1대당 충전기 수 추이
+- 연도별 전기차·충전기 증가율 비교
+- ⚠️ 충전 취약 지역 TOP 3 (1대당 충전기 수 최하위 권역)
+
+---
+
+## 🗺️ 스크린샷
+
+### 전기차 등록현황
+<!-- 스크린샷 추가 예정 -->
+![전기차 등록현황](screenshots/ev_registration.png)
+
+### 충전소 구축현황
+<!-- 스크린샷 추가 예정 -->
+![충전소 구축현황](screenshots/ev_charger.png)
+
+### 비교 페이지
+<!-- 스크린샷 추가 예정 -->
+![비교 페이지](screenshots/compare.png)
+
+---
+
+## 🗄️ DB 구조
+
+### ev_registration (전기차 등록현황)
+
+| 컬럼 | 타입 | 설명 |
+|------|------|------|
+| 년도 | VARCHAR(4) | 기준 연도 (PK) |
+| 서울 ~ 제주 | INT | 시도별 누적 등록 대수 |
+| 합계 | INT | 전국 합계 |
+| created_at | TIMESTAMP | 적재 일시 |
+
+### ev_charger (충전기 구축현황)
+
+| 컬럼 | 타입 | 설명 |
+|------|------|------|
+| 년도 | VARCHAR(4) | 기준 연도 (PK) |
+| 서울_완속 ~ 제주_급속 | INT | 권역별 충전 속도별 누적 수 |
+| 합계_전체 | INT | 전국 합계 |
+| created_at | TIMESTAMP | 적재 일시 |
+
+---
+
+## 👥 팀원 및 역할
+
+| 팀원 | 역할 |
+|------|------|
+| 팀원 1 | 정적 크롤링, Streamlit 구현 |
+| 팀원 2 | 정적 크롤링, Streamlit 구현 |
+| 팀원 3 | 동적 크롤링 |
+| 팀원 4 | 동적 크롤링 |
+| 팀원 5 | DB 설계, 코드 병합, Streamlit 설계 |
+
+---
+
+## 📋 데이터 출처
+
+- 전기차 등록현황: [국토교통부 자동차 등록 통계](https://www.data.go.kr)
+- 전기차 충전기 구축현황: [환경부 전기차 충전 인프라 통계](https://www.data.go.kr)
