@@ -32,7 +32,6 @@
 
 ---
 
-
 ## 🛠️ 기술 스택
 
 | 분류 | 기술 |
@@ -41,7 +40,7 @@
 | 크롤링 | Requests, BeautifulSoup, Selenium |
 | 데이터 처리 | Pandas, OpenPyXL |
 | DB | MySQL 8.0, SQLAlchemy, PyMySQL |
-| 시각화 | Streamlit, Plotly |
+| 시각화 | Streamlit, Plotly, Folium, Streamlit-Folium |
 | 버전 관리 | Git, GitHub |
 
 ---
@@ -64,8 +63,8 @@ team_project_1/
 │
 └── README.md
 
-
 ```
+
 **사용 모듈**
 - streamlit pandas plotly pymysql sqlalchemy openpyxl requests folium streamlit-folium selenium
 
@@ -139,6 +138,7 @@ team_project_1/
 
 - 전기차 등록현황: [국토교통부 자동차 등록 통계](https://www.data.go.kr)
 - 전기차 충전기 구축현황: [환경부 전기차 충전 인프라 통계](https://www.data.go.kr)
+  
 ---
 
 ## 🖋️ 프로젝트 회고
