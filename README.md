@@ -49,18 +49,16 @@
 
 ```
 team_project_1/
-│
-├── car_stats.py                    # 전기차 등록현황 정적 크롤링 → CSV 변환
-├── charger_stats.py                # 충전기 구축현황 정적 크롤링 → CSV 변환
-├── ev_stats_db.py                  # CSV → MySQL 적재
-├── FAQ.py                          # 기아자동차 FAQ 동적 크롤링
-├── FAQ_hyn.py                      # 현대자동차 FAQ 동적 크롤링
-├── db.py                           # DB 연결 설정 (DBHandler)
-├── DashBoard.py                    # Streamlit 대시보드
-│
+├── main.py              # 메인
+├── utils.py             # 공통 함수
+├── page_ev.py           # 페이지
+├── page_charger.py      # 페이지
+├── page_compare.py      # 페이지
+├── page_faq.py          # 페이지
+├── db.py                # DB 연결 ← 없으면 에러
+├── ev_stats_db.py       # CSV → DB 적재 ← DB 비어있으면 필요
 ├── 전기차등록현황_년도별지역별.csv
 ├── 전기차충전기_년도별지역별.csv
-│
 └── README.md
 
 ```
@@ -98,6 +96,7 @@ team_project_1/
 |------|-----|------------|
 | 현대자동차 | https://www.hyundai.com/kr/ko/e/customer/center/faq | Selenium (동적) |
 | 기아자동차 | https://www.kia.com/kr/customer-service/center/faq | Selenium (동적) |
+| 무공해차통합누리 | https://ev.or.kr/nportal/main.do | Selenium (동적) |
 
 **수집 항목**
 
