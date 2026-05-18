@@ -92,9 +92,9 @@ team_project_1/
 ### 1.1 데이터 수집 및 방법
 - 전기차 등록 현황 및 충전 인프라 데이터
   - 공공데이터포털 등에서 제공하는 전국 전기차 등록 현황 및 충전소 구축 관련 원천 CSV 파일 활용
-  - evcar.py 스크립트를 통해 CSV 데이터를 파싱 및 정제한 후, MySQL 데이터베이스의 ev_registration 및 ev_charger 테이블에 적재(if_exists="replace")
+  - evcar.py 스크립트를 통해 CSV 데이터를 파싱 및 정제한 후, MySQL 데이터베이스의 ev_registration 및 ev_charger 테이블에 적재
 - 추가 FAQ 및 안내 데이터 (동적 크롤링)
-  - FAQ.py 및 FAQ_hyn.py 내부에서 Selenium(크롬 드라이버)을 활용하여 무공해차 통합누리집, 기아, 현대자동차 공식 FAQ 페이지의 동적 DOM 구조를 파싱
+  - FAQ.py 및 FAQ_hyn.py 내부에서 Selenium을 활용하여 무공해차 통합누리집, 기아, 현대자동차 공식 FAQ 페이지에서 수집
   - 수집된 데이터를 주기적으로 배치를 통해 MySQL 데이터베이스의 faqs 테이블에 실시간 동기화 및 적재
 
 ### 1.2 수집 데이터 항목 명세
