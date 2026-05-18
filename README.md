@@ -98,7 +98,7 @@ team_project_1/
 | 현대자동차 | https://www.hyundai.com/kr/ko/e/customer/center/faq | Selenium (동적) |
 | 기아자동차 | https://www.kia.com/kr/customer-service/center/faq | Selenium (동적) |
 
-### 수집 항목
+**수집 항목**
 
 | 컬럼 | 설명 |
 |------|------|
