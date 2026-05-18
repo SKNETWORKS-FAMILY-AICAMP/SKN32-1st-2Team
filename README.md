@@ -83,7 +83,9 @@ team_project_1/
 - ⚠️ 충전 취약 지역 TOP 3 (1대당 충전기 수 최하위 권역)
 
 ### 💬 FAQ
-
+- ddddd
+- dddddddd
+- ddddddddddddd
 ---
 
 ## 📑 ERD
