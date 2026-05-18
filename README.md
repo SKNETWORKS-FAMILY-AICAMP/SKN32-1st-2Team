@@ -141,13 +141,14 @@ team_project_1/
 ---
 
 ## 🖋️ 프로젝트 회고
+
+### 😊 이태혁
+ooooooooooooooooooooooooooooooooooooooooooo
 ### 😊 문건민
 ooooooooooooooooooooooooooooooooooooooooooo
 ### 😊 박수진
 ooooooooooooooooooooooooooooooooooooooooooo
 ### 😊 소성민
-ooooooooooooooooooooooooooooooooooooooooooo
-### 😊 이태혁
 ooooooooooooooooooooooooooooooooooooooooooo
 ### 😊 정세환
 ooooooooooooooooooooooooooooooooooooooooooo
