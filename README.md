@@ -14,9 +14,18 @@ Streamlit을 활용해 년도별·지역별 대시보드로 시각화
 - 충전 인프라 부족 지역 분석
 - 기업 FAQ
 
+---
+
 ## 👨‍👩‍👧‍👦 팀 소개
 - **팀명**: 부릉데이터
-- **팀원**: 문건일, 박수진, 소성민, 이태혁, 정세환
+- **팀원**
+| 이름 | 역할 |
+|------|------|
+| 문건일 | ㅇㅇㅇ |
+| 박수진 | ㅇㅇㅇ |
+| 소성민 | ㅇㅇㅇ |
+| 이태혁 | ㅇㅇㅇ |
+| 정세환 | ㅇㅇㅇ |
 
 ---
 
@@ -48,52 +57,8 @@ team_project_1/
 ├── 전기차충전기_년도별지역별.csv
 │
 └── README.md
+
 ```
-
----
-
-## ⚙️ 실행 방법
-
-### 1. 패키지 설치
-
-```bash
-pip install streamlit pandas plotly pymysql sqlalchemy openpyxl requests xlrd
-```
-
-### 2. MySQL DB 및 테이블 생성
-
-MySQL Workbench에서 `create_db.sql` 실행
-
-```sql
--- 또는 터미널에서
-mysql -u root -p < create_db.sql
-```
-
-### 3. 데이터 수집 및 CSV 변환
-
-```bash
-# 전기차 등록현황
-python ev_yearly.py
-
-# 충전기 구축현황
-python ev_charger_yearly.py
-```
-
-### 4. MySQL에 데이터 적재
-
-```bash
-python save_to_db.py
-```
-
-### 5. 대시보드 실행
-
-```bash
-streamlit run dashboard.py
-```
-
-브라우저에서 `http://localhost:8501` 접속
-
----
 
 ## 📊 주요 기능
 
@@ -117,7 +82,7 @@ streamlit run dashboard.py
 
 ---
 
-## 🗺️ 스크린샷
+## 🗺️
 
 ### 전기차 등록현황
 <!-- 스크린샷 추가 예정 -->
