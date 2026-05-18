@@ -95,7 +95,7 @@ team_project_1/
   - evcar.py 스크립트를 통해 CSV 데이터를 파싱 및 정제한 후, MySQL 데이터베이스의 ev_registration 및 ev_charger 테이블에 적재
 - 추가 FAQ 및 안내 데이터 (동적 크롤링)
   - FAQ.py 및 FAQ_hyn.py 내부에서 Selenium을 활용하여 무공해차 통합누리집, 기아, 현대자동차 공식 FAQ 페이지에서 수집
-  - 수집된 데이터를 주기적으로 배치를 통해 MySQL 데이터베이스의 faqs 테이블에 실시간 동기화 및 적재
+  - 수집된 데이터를 주기적으로 배치를 통해 MySQL 데이터베이스의 faqs 테이블에 동기화 및 적재
 
 ### 1.2 수집 데이터 항목 명세
 - 전기차 등록 정보 (ev_registration)
