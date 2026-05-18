@@ -11,7 +11,7 @@
 - **프로젝트 목표**
   - 년도별·지역별 전기차 등록 현황 및 충전기 구축 현황 분석
   - 충전 인프라 부족 지역 분석
-  - 기업 FAQ
+  - 기업 FAQ 조회 및 검색
 
 ---
 
@@ -49,15 +49,21 @@
 ```
 team_project_1/
 │
-├── car_stats.py                          # 전기차 등록현황 정적 크롤링 → CSV 변환
-├── charger_stats.py                      # 충전기 구축현황 정적 크롤링 → CSV 변환
-├── ev_stats_db.py                        # CSV → MySQL 적재
-├── dashboard_map.py                      # Streamlit 대시보드
+├── car_stats.py                    # 전기차 등록현황 정적 크롤링 → CSV 변환
+├── charger_stats.py                # 충전기 구축현황 정적 크롤링 → CSV 변환
+├── ev_stats_db.py                  # CSV → MySQL 적재
+├── FAQ.py                          # 기아자동차 FAQ 동적 크롤링
+├── FAQ_hyn.py                      # 현대자동차 FAQ 동적 크롤링
+├── db.py                           # DB 연결 설정 (DBHandler)
+├── DashBoard.py                    # Streamlit 대시보드
 │
 ├── 전기차등록현황_년도별지역별.csv
 ├── 전기차충전기_년도별지역별.csv
 │
 └── README.md
+```
+**사용 모듈**
+streamlit pandas plotly pymysql sqlalchemy openpyxl requests folium streamlit-folium selenium
 
 ```
 
@@ -81,8 +87,27 @@ team_project_1/
 - 연도별 전기차·충전기 증가율 비교
 - ⚠️ 충전 취약 지역 TOP 3 (1대당 충전기 수 최하위 권역)
 
-### 💬 FAQ
-- ddddd
+### 💬기업 FAQ 조회
+- 현대·기아자동차 FAQ 동적 크롤링 후 DB 저장
+- 기업별 FAQ 검색 및 조회 (키워드 검색 지원)
+
+### 수집 대상
+
+| 기업 | URL | 크롤링 방식 |
+|------|-----|------------|
+| 현대자동차 | https://www.hyundai.com/kr/ko/e/customer/center/faq | Selenium (동적) |
+| 기아자동차 | https://www.kia.com/kr/customer-service/center/faq | Selenium (동적) |
+
+### 수집 항목
+
+| 컬럼 | 설명 |
+|------|------|
+| source_name | 기업명 (현대 FAQ / 기아 FAQ) |
+| category | FAQ 카테고리 |
+| question | 질문 |
+| answer | 답변 |
+| question_hash | 중복 방지용 해시값 |
+| crawled_at | 크롤링 일시 |
 - dddddddd
 - ddddddddddddd
 ---
@@ -95,7 +120,7 @@ team_project_1/
   - evcar.py 스크립트를 통해 CSV 데이터를 파싱 및 정제한 후, MySQL 데이터베이스의 ev_registration 및 ev_charger 테이블에 적재
 - 추가 FAQ 및 안내 데이터 (동적 크롤링)
   - FAQ.py 및 FAQ_hyn.py 내부에서 Selenium을 활용하여 무공해차 통합누리집, 기아, 현대자동차 공식 FAQ 페이지에서 수집
-  - 수집된 데이터를 주기적으로 배치를 통해 MySQL 데이터베이스의 faqs 테이블에 동기화 및 적재
+  - 수집된 데이터를 주기적으로 배치를 통해 MySQL 데이터베이스의 faqs 테이블에 실시간 동기화 및 적재
 
 ### 1.2 수집 데이터 항목 명세
 - 전기차 등록 정보 (ev_registration)
