@@ -67,8 +67,6 @@ team_project_1/
 **사용 모듈**
 - streamlit pandas plotly pymysql sqlalchemy openpyxl requests folium streamlit-folium selenium
 
-```
-
 ## 📊 주요 기능
 
 ### 🚗 전기차 등록현황
