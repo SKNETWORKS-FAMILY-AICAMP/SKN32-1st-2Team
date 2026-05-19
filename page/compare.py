@@ -18,20 +18,23 @@ def show(ev_df, charger_df):
     charger_common = charger_df[charger_df["년도"].isin(common_years)].set_index("년도")
 
     # ── 이중축 차트 ───────────────────────────────────────────
-    fig_combo = make_subplots(specs=[[{"secondary_y": True}]])
+    fig_combo = go.Figure()
     fig_combo.add_trace(go.Bar(
         x=common_years, y=ev_common["합계"],
         name="전기차 등록 (대)", marker_color="#636EFA", opacity=0.7
-    ), secondary_y=False)
+    ))
     fig_combo.add_trace(go.Scatter(
         x=common_years, y=charger_common["합계_전체"],
         mode="lines+markers", name="충전기 수 (기)",
         line=dict(color="#EF553B", width=2), marker=dict(size=7)
-    ), secondary_y=True)
-    fig_combo.update_layout(title="전기차 등록 대수 vs 충전기 구축 수 (전국)",
-                             hovermode="x unified", height=450)
-    fig_combo.update_yaxes(title_text="전기차 등록 대수 (대)", secondary_y=False)
-    fig_combo.update_yaxes(title_text="충전기 수 (기)", secondary_y=True)
+    ))
+    fig_combo.update_layout(
+        title="전기차 등록 대수 vs 충전기 구축 수 (전국)",
+        xaxis_title="년도",
+        yaxis_title="수량",
+        hovermode="x unified",
+        height=450
+    )
     st.plotly_chart(fig_combo, use_container_width=True)
 
     # ── 1대당 충전기 수 ───────────────────────────────────────
