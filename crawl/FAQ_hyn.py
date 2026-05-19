@@ -211,6 +211,14 @@ def save_faqs_to_db(faqs: List[Dict[str, str]], db_handler) -> None:
 
 # ── 5. 메인 실행 제어부 ──────────────────────────────────────────────────────
 if __name__ == "__main__":
+    import os
+    import sys
+
+    # 🌟 [경로 오류 해결] 상위 폴더를 파이썬 패키지 검색 경로에 등록
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    parent_dir = os.path.dirname(current_dir)
+    if parent_dir not in sys.path:
+        sys.path.append(parent_dir)
     from database.db import DBHandler  
     db_handler = DBHandler()
     
