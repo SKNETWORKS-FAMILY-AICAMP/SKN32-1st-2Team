@@ -49,17 +49,32 @@
 
 ```
 team_project_1/
+│
+├── 📁 crawl/                  # 데이터 수집(Crawl) 및 적재(ETL) 파이썬 스크립트
+│   ├── FAQ.py                 # 무공해차 통합누리집 및 기아 FAQ 동적 크롤러
+│   ├── FAQ_hyn.py             # 현대 자동차 FAQ 동적 크롤러
+│   ├── kia_faq_rendered.html  # 크롤링 디버깅 및 데이터 검증용 정적 파일
+│   └── kia_faq_rendered.txt   # 데이터 가공 및 분석용 파싱 텍스트 파일
+│
+├── 📁 data/ 
+│   ├── 전기차충전기_년도별지역별.csv
+│   └── 전기차충전기_년도별지역별.csv
+│
+├── 📁 database/               # 데이터베이스 커넥션 및 인터페이스 레이어
+│   ├── db.py                  # # DB 연결 ← 없으면 에러
+│   ├── ev_stats_db.py         # CSV → DB 적재 ← DB 비어있으면 필요
+│   └── faqs.sql               # SQL 파일
+│
+├── 📁 page/                  
+│   ├── charger.py             # 전국 전기차 충전기 구축현황 대시보드
+│   ├── compare.py             # 전기차 vs 충전기 비교 대시보드
+│   ├── ev_car.py              # 전기차 등록현황 대시보드
+│   └── ev_faq.py              # FAQ 통합 검색 대시보드
+│
+├── README.md
 ├── main.py              # 메인
-├── utils.py             # 공통 함수
-├── page_ev.py           # 페이지
-├── page_charger.py      # 페이지
-├── page_compare.py      # 페이지
-├── page_faq.py          # 페이지
-├── db.py                # DB 연결 ← 없으면 에러
-├── ev_stats_db.py       # CSV → DB 적재 ← DB 비어있으면 필요
-├── 전기차등록현황_년도별지역별.csv
-├── 전기차충전기_년도별지역별.csv
-└── README.md
+├── requirements.txt
+└── utils.py             # 공통 함수
 
 ```
 
