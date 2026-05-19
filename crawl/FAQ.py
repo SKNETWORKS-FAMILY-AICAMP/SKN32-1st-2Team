@@ -674,7 +674,7 @@ def parse_kia_faqs_from_html(html: str) -> List[Dict[str, str]]:
 
 if __name__ == "__main__":
     # 1. 🌟 내가 만든 db.py 파일에서 DBHandler 클래스를 가져옵니다.
-    from db import DBHandler  
+    from database.db import DBHandler  
     
     # 2. 🌟 파이썬과 DB를 연결해 주는 객체(db_handler)를 생성합니다.
     db_handler = DBHandler()
